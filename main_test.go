@@ -23,7 +23,7 @@ func baseURL() string {
 // giving `docker compose up -d` time to finish starting the containers.
 func waitForApp(t *testing.T, url string) {
 	t.Helper()
-	deadline := time.Now().Add(30 * time.Second)
+	deadline := time.Now().Add(10 * time.Second)
 	for time.Now().Before(deadline) {
 		resp, err := http.Get(url)
 		if err == nil {
