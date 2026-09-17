@@ -1,0 +1,14 @@
+services:
+  web:
+    container_name: webapp-frontend
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - redis
+  redis:
+    container_name: redis-backend
+    image: "redis:alpine"
